@@ -25,7 +25,7 @@ SECRET_KEY = 'roaz2to-89di++nn=cuaeyih4^mwtlxt^f8m-0at1=kqlo3ym!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
