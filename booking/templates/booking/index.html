@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Table V02</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="{% static 'booking/images/icons/favicon.ico' %}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'booking/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'booking/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'booking/vendor/animate/animate.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'booking/vendor/select2/select2.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'booking/vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'booking/css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'booking/css/main.css' %}">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+<div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table">
+
+                <div class="row header">
+                    <div class="cell">
+                        First Name
+                    </div>
+                    <div class="cell">
+                        Last Name
+                    </div>
+                    <div class="cell">
+                        Profession
+                    </div>
+                    <div class="cell">
+                    </div>
+                </div>
+                {% if masters %}
+                    {% for master in masters %}
+                        <div class="row">
+                            <div class="cell" data-title="First Name">
+                                {{ master.first_name }}
+                            </div>
+                            <div class="cell" data-title="Last Name">
+                                {{ master.last_name }}
+                            </div>
+                            <div class="cell" data-title="Profession">
+                                {{ master.get_service_display }}
+                            </div>
+                            <div class="cell" data-title="Book">
+                                <button onclick="location.href='{% url 'detail' master.id %}';">Book!</button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <h1>Sorry, there are no masters...</h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--===============================================================================================-->
+<script src="{% static 'booking/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'booking/vendor/bootstrap/js/popper.js' %}"></script>
+<script src="{% static 'booking/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'booking/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'booking/js/main.js' %}"></script>
+
+</body>
+</html>
