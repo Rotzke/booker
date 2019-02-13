@@ -32,36 +32,17 @@
 
                 <div class="row header">
                     <div class="cell">
-                        First Name
-                    </div>
-                    <div class="cell">
-                        Last Name
-                    </div>
-                    <div class="cell">
-                        Profession
-                    </div>
-                    <div class="cell">
+                        Details
                     </div>
                 </div>
-                {% if master_list %}
-                    {% for master in master_list %}
-                        <div class="row">
-                            <div class="cell" data-title="First Name">
-                                {{ master.first_name }}
-                            </div>
-                            <div class="cell" data-title="Last Name">
-                                {{ master.last_name }}
-                            </div>
-                            <div class="cell" data-title="Profession">
-                                {{ master.get_service_display }}
-                            </div>
-                            <div class="cell" data-title="Book">
-                                <button onclick="location.href='{% url 'detail' master.id %}';">Book!</button>
-                            </div>
+                {% if master%}
+                    <div class="row">
+                        <div class="cell" data-title="First Name">
+                            <p align="center">{{ master.first_name }} {{ master.last_name }} is a {{ master.get_service_display }}</p>
                         </div>
-                    {% endfor %}
+                    </div>
                 {% else %}
-                    <h1>Sorry, there are no masters...</h1>
+                    <h1>Sorry, there are no masters with this id!</h1>
                 {% endif %}
             </div>
         </div>
